@@ -7,7 +7,7 @@ class Location extends CI_Model{
         $sql = "insert into locations ";
         $sql.= "(name,address,district,latitude,longitude,createuser)";
         $sql.= "values ";
-        $sql.= "('".$name."','".$address."','".$district."',".$latitude.",".$longitude.",".$createuser.")";
+        $sql.= "('".$name."','".$address."','".$district."',".$latitude.",".$longitude.",'".$createuser."')";
         $ci = & get_instance();
         $ci->db->query($sql);
         return $sql;
