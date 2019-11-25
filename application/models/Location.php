@@ -3,17 +3,17 @@ class Location extends CI_Model{
     function __construct(){
         parent::__construct();
     }
-    function save($name,$address,$district,$latitude,$longitude,$createuser){
+    function save($name,$address,$district,$phone,$latitude,$longitude,$createuser){
         $sql = "insert into locations ";
-        $sql.= "(name,address,district,latitude,longitude,createuser)";
+        $sql.= "(name,address,district,phone,latitude,longitude,createuser)";
         $sql.= "values ";
-        $sql.= "('".$name."','".$address."','".$district."',".$latitude.",".$longitude.",'".$createuser."')";
+        $sql.= "('".$name."','".$address."','".$district."','".$phone."',".$latitude.",".$longitude.",'".$createuser."')";
         $ci = & get_instance();
         $ci->db->query($sql);
         return $sql;
     }
     function gets(){
-        $sql = 'select id,name,address,district,latitude,longitude,createuser ';
+        $sql = 'select id,name,address,district,phone,latitude,longitude,createuser ';
         $sql.= 'from locations order by createdate desc ';
         $ci = & get_instance();
         $rows = $ci->db->query($sql);
