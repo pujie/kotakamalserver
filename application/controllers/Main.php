@@ -23,7 +23,7 @@ class Main extends CI_Controller{
         header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
         header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept"); 
         $params = $_POST;
-        return $this->location->save($params['name'],$params['address'],$params['district'],$params['latitude'],$params['longitude'],$params['createuser']);
+        return $this->location->save($params['name'],$params['address'],$params['district'],$params['phone'],$params['latitude'],$params['longitude'],$params['createuser']);
     }
     function gets(){
         header("Access-Control-Allow-Origin: *");
