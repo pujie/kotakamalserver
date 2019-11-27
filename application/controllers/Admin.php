@@ -10,7 +10,8 @@ class Admin extends CI_Controller{
             'tablename'=>'Suara Hati',
             'tablenamedescription'=>'Yayasan',
             'tableinfo'=>'Distribusi Kotak',
-            'locations'=>$this->flocation->getlocations()
+            'locations'=>$this->flocation->getlocations(),
+            'username'=>'Tamu'
         );
         $this->load->view('Admin/index',$data);
     }
