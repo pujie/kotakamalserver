@@ -15,4 +15,13 @@ class Admin extends CI_Controller{
         );
         $this->load->view('Admin/index',$data);
     }
+    function login(){
+        $data = array(
+            'title'=>'Yayasan Suara Hati'
+        );
+        $this->load->view('Admin/login',$data);
+    }
+    function loginhandler(){
+        redirect("/Admin/index");
+    }
 }
