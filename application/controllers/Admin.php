@@ -4,6 +4,17 @@ class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model('flocation');
     }
+    function edit(){
+        $data = array(
+            'title'=>'Yayasan Suara Hati',
+            'tablename'=>'Suara Hati',
+            'tablenamedescription'=>'Yayasan',
+            'tableinfo'=>'Distribusi Kotak',
+            'locations'=>$this->flocation->getlocations(),
+            'username'=>'Tamu'
+        );
+        $this->load->view('Admin/edit',$data);
+    }
     function index(){
         $data = array(
             'title'=>'Yayasan Suara Hati',

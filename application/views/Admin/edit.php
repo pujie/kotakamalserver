@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $title;?></title>
+  <title>AdminLTE 2 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="/plugins/AdminLTE/pluginsdatatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/plugins/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -60,13 +58,24 @@
           <img src="/plugins/AdminLTE/dist/img/logoysh.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Assalamu'alaykum</p>
+        <p>Assalamu'alaykum</p>
           <a href="#"><i class="fa fa-circle text-success"></i> <?php echo $username;?></a>
         </div>
       </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <?php $this->load->view('Admin/leftmenu');?>
-    </section>
+      </section>
     <!-- /.sidebar -->
   </aside>
 
@@ -81,61 +90,62 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Admin</a></li>
-        <li class="active">Sebaran Kotak</li>
+        <li class="active">Edit</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
-          <!-- /.box -->
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"><?php echo $tableinfo;?></h3>
+        <!-- right column -->
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+          <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">General Elements</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nama</th>
-                  <th>Alamat</th>
-                  <th>Koordinat</th>
-                  <th>Petugas</th>
-                  <th>Edit</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach($locations as $loc){?>
-                <tr>
-                  <td><?php echo $loc->name;?></td>
-                  <td>
-                  <h5><?php echo $loc->address;?></h5>
-                  <h6><?php echo $loc->district;?></h6>
-                  </td>
-                  <td><a href="https://www.google.com/maps?q=<?php echo $loc->latitude . ',' . $loc->longitude;?>" target="_blank"><?php echo $loc->latitude . ' ' . $loc->longitude;?></a></td>
-                  <td><?php echo $loc->createuser;?></td>
-                  <td><a class="btn btn-sm primary btn-block" type="button" href="/Admin/edit">Edit</a></td>
-                </tr>
-                <?php }?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
-              </table>
+              <form role="form">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Nama</label>
+                  <input type="text" class="form-control" placeholder="Enter ...">
+                </div>
+                <div class="form-group">
+                  <label>Koordinat</label>
+                  <input type="text" class="form-control" placeholder="Enter ..." disabled>
+                </div>
+
+                <!-- textarea -->
+                <div class="form-group">
+                  <label>Alamat</label>
+                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Telp</label>
+                  <input type="text" class="form-control" placeholder="Enter ...">
+                </div>
+                <!-- select -->
+                <div class="form-group">
+                  <label>Area (Kecamatan)</label>
+                  <select class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                </div>
+
+              </form>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!--/.col (right) -->
       </div>
       <!-- /.row -->
     </section>
@@ -350,30 +360,11 @@
 <script src="/plugins/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="/plugins/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="/plugins/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="/plugins/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/plugins/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/plugins/AdminLTE/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/plugins/AdminLTE/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/plugins/AdminLTE/dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 </body>
 </html>
